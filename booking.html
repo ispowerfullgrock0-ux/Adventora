@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Pemesanan Adventora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/index.css">
+
+</head>
+
+<body class="subpage">
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#home">
+        <img src="/image/image2.png" alt="Adventora Logo" class="logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">Mengapa Kami</a>
+        <a href="index.html#packages">Paket</a>
+        <a href="index.html#gallery">Armada</a>
+        <a href="index.html#testimonials">Testimoni</a>
+        <a href="index.html#contact">Kontak</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="section booking-form-section">
+      <div class="container grid-booking">
+
+        <!-- FORM PEMESANAN -->
+        <div class="booking-card form-step">
+          <h2>1. Detail Perjalanan</h2>
+          <form id="bookingForm">
+
+            <div class="form-row">
+              <label for="package">Jenis Paket <span class="required">*</span></label>
+              <select id="package" name="package" required>
+                <option value="">-- Pilih Paket --</option>
+                <option value="reguler">Reguler</option>
+                <option value="vip">VIP / Private</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="direction">Pilih Rute <span class="required">*</span></label>
+              <select id="direction" name="direction" required>
+                <option value="">-- Pilih Rute --</option>
+                <option value="jember-lumajang">Jember - Lumajang</option>
+                <option value="lumajang-jember">Lumajang - Jember</option>
+                <option value="jember-probolinggo">Jember - Probolinggo</option>
+                <option value="probolinggo-jember">Probolinggo - Jember</option>
+                <option value="jember-pasuruan">Jember - Pasuruan</option>
+                <option value="pasuruan-jember">Pasuruan - Jember</option>
+                <option value="jember-surabaya">Jember - Surabaya</option>
+                <option value="surabaya-jember">Surabaya - Jember</option>
+                <option value="jember-malang">Jember - Malang</option>
+                <option value="malang-jember">Malang - Jember</option>
+                <option value="rute-lain">Rute Lain...</option>
+              </select>
+
+              <input type="text" id="ruteInput" placeholder="Masukkan rute lain..." style="display:none;">
+            </div>
+
+            <div class="form-row">
+              <label for="date">Tanggal Keberangkatan <span class="required">*</span></label>
+              <input id="date" name="date" type="date" required>
+            </div>
+
+            <div class="form-row">
+              <label for="time">Perkiraan Jam Berangkat (Akan dikonfirmasi Admin)</label>
+              <input id="time" name="time" type="time">
+            </div>
+
+            <div class="form-row">
+              <label for="passengers">Jumlah Penumpang <span class="required">*</span></label>
+              <input id="passengers" name="passengers" type="number" min="1" value="1" required>
+            </div>
+
+            <hr>
+            <h2>2. Data Pemesan</h2>
+
+            <div class="form-row">
+              <label for="name">Nama Pemesan <span class="required">*</span></label>
+              <input id="name" name="name" type="text" placeholder="Cth: Budi" required>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">No. Handphone (WA Aktif) <span class="required">*</span></label>
+              <input id="phone" name="phone" type="tel" placeholder="Cth: 081234567890" required>
+            </div>
+
+            <div class="form-row">
+              <label for="pickup">Alamat Penjemputan <span class="required">*</span></label>
+              <input id="pickup" name="pickup" type="text" placeholder="Cth: Jl. Tidar No. 115 Jember" required>
+            </div>
+
+            <div class="form-row">
+              <label for="destination">Alamat Tujuan/Drop-off <span class="required">*</span></label>
+              <input id="destination" name="destination" type="text" placeholder="Cth: Bandara Juanda, Surabaya" required>
+            </div>
+             <div class="form-row">
+  <label for="luggage">Barang Bawaan (Opsional)</label>
+  <input id="luggage" name="luggage" type="text" placeholder="Cth: 2 koper, 1 tas">
+</div>
+
+            <button type="submit" class="btn primary large-btn cta-pulse" id="submitBooking">
+              <i class="fas fa-arrow-right"></i> Kirim
+            </button>
+            <p class="small-info">Dengan klik 'Kirim', Anda setuju dengan Syarat & Ketentuan Adventora.</p>
+            
+           
+          </form>
+        </div>
+
+        <!-- RANGKUMAN & PEMBAYARAN -->
+        <div class="booking-summary-card">
+          <h2>Rangkuman & Pembayaran</h2>
+          <div class="summary-details">
+            <p>Paket: <span id="summaryPackage">-----</span></p>
+            <p>Rute: <span id="summaryDirection">-----</span></p>
+            <p>Tgl: <span id="summaryDate">Belum Dipilih</span></p>
+            <p>Penumpang: <span id="summaryPassengers">-----</span></p>
+            <p>Barang Bawaan: <span id="summaryLuggage">Tidak ada</span></p>
+            <hr>
+            <p class="total-price">Total Harga: <span id="summaryPrice">Rp.-----</span></p>
+          </div>
+
+          <div class="payment-info">
+            <h3>Metode Pembayaran Transfer (Optional)</h3>
+            <p>Harga berlaku untuk penjemputan dan pengantaran dalam kota. Admin akan konfirmasi jika ada tambahan lokasi atau barang.</p>
+            <div class="bank-detail">
+              <p><strong>Bank Seabank</strong></p>
+              <p>No. Rekening: 901099860156</p>
+              <p>A.N: AB*** LA***</p>
+            </div>
+            <p class="small-info mt-2">Setelah transfer, kirim bukti bayar ke admin WA kami.</p>
+            <a href="https://wa.me/6281217241263" target="_blank" class="btn primary large-btn mt-3">
+              <i class="fab fa-whatsapp"></i> Kirim bukti pembayaran
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+  // ===== NAVBAR =====
+  const navbar = document.querySelector('.navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    const icon = navToggle.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-times");
+  });
+
+  document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        navLinks.classList.remove("active");
+        const icon = navToggle.querySelector("i");
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  });
+
+  // ===== INPUT RUTE LAIN =====
+  (function() {
+    const direction = document.getElementById('direction');
+    const ruteInput = document.getElementById('ruteInput');
+    let ruteIndex = [...direction.options].findIndex(opt => opt.value === 'rute-lain');
+
+    ruteInput.style.display = 'none';
+
+    direction.addEventListener('change', () => {
+      const val = direction.value;
+      if (val === 'rute-lain') {
+        ruteInput.style.display = 'block';
+        ruteInput.focus();
+      } else {
+        ruteInput.style.display = 'none';
+        ruteInput.value = '';
+      }
+      updateSummary();
+    });
+
+    ruteInput.addEventListener('input', () => {
+      const txt = ruteInput.value.trim() || 'Rute Lain...';
+      direction.options[ruteIndex].text = txt;
+      direction.options[ruteIndex].value = txt.toLowerCase().replace(/\s+/g, '-');
+      updateSummary();
+    });
+  })();
+
+  // ===== DATA HARGA =====
+  const hargaRute = {
+    "reguler": {
+      "jember-lumajang": 150000,
+      "lumajang-jember": 150000,
+      "jember-probolinggo": 175000,
+      "probolinggo-jember": 175000,
+      "jember-pasuruan": 175000,
+      "pasuruan-jember": 175000,
+      "jember-surabaya": 200000,
+      "surabaya-jember": 200000,
+      "jember-malang": 200000,
+      "malang-jember": 200000
+    },
+    "vip": {
+      "jember-lumajang": 750000,
+      "lumajang-jember": 750000,
+      "jember-probolinggo": 875000,
+      "probolinggo-jember": 875000,
+      "jember-pasuruan": 875000,
+      "pasuruan-jember": 875000,
+      "jember-surabaya": 1000000,
+      "surabaya-jember": 1000000,
+      "jember-malang": 1000000,
+      "malang-jember": 1000000
+    }
+  };
+
+  // ===== UPDATE RANGKUMAN =====
+  function updateSummary() {
+    const pkg = document.getElementById('package').value;
+    const dirSelect = document.getElementById('direction');
+    const dirValue = dirSelect.value;
+    const dirText = dirSelect.options[dirSelect.selectedIndex]?.text || '-----';
+    const passengers = Number(document.getElementById('passengers').value) || 1;
+    const date = document.getElementById('date').value || 'Belum Dipilih';
+    
+let price = '-----';
+if (pkg && hargaRute[pkg]?.[dirValue]) {
+  let jumlah = passengers;
+  if(pkg === 'vip') jumlah = 1; // VIP dihitung 1 orang saja
+  const total = jumlah * hargaRute[pkg][dirValue];
+  price = `Rp ${new Intl.NumberFormat('id-ID').format(total)}`;
+}
+    
+    document.getElementById('summaryPackage').textContent =
+      document.getElementById('package').selectedOptions[0]?.text || '-----';
+    document.getElementById('summaryDirection').textContent = dirText;
+    document.getElementById('summaryPassengers').textContent = `${passengers} Orang`;
+    document.getElementById('summaryPrice').textContent = price;
+    document.getElementById('summaryDate').textContent = date;
+  }
+
+  document.getElementById('bookingForm').addEventListener('input', updateSummary);
+  updateSummary();
+
+  // ===== SUBMIT KE WHATSAPP =====
+  document.getElementById('bookingForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const pkg = document.getElementById('package').selectedOptions[0].text;
+    const direction = document.getElementById('direction').selectedOptions[0].text;
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value || '--';
+    const passengers = document.getElementById('passengers').value;
+    const pickup = document.getElementById('pickup').value.trim();
+    const destination = document.getElementById('destination').value.trim();
+    const luggage = document.getElementById('luggage').value.trim() || 'Tidak ada';
+document.getElementById('summaryLuggage').textContent = luggage;
+
+    const message = `
+Halo Adventora, saya ingin pesan travel paket ${pkg}!
+
+*DETAIL PEMESANAN*
+- Nama: ${name}
+- HP/WA: ${phone}
+- Paket: ${pkg}
+- Rute: ${direction}
+- Tgl/Jam: ${date} Pukul ${time}
+- Penumpang: ${passengers} orang
+- Alamat Penjemputan: ${pickup}
+- Alamat Tujuan: ${destination}
+- Barang bawaan: ${luggage}
+
+Terimakasih!`;
+
+    const waLink = `https://wa.me/6281217241263?text=${encodeURIComponent(message)}`;
+    window.open(waLink, "_blank");
+    alert('Data pemesanan Anda telah disiapkan! Anda akan diarahkan ke WhatsApp.');
+  });
+</script>
