@@ -2,92 +2,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
      1. Navbar & Mobile Menu
-  ========================================================================== */const navbar = document.getElementById("navbar");
-const navToggle = document.getElementById("navToggle");
-const navLinks = document.getElementById("navLinks");
+  ========================================================================== */
+  const navbar = document.getElementById("navbar");
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
 
-// Navbar Scroll Effect
-if (navbar) {
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  };
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-}
-
-// Toggle Mobile Menu
-navToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open"); // ← menu buka/tutup
-  const icon = navToggle.querySelector("i");
-
-  if (navLinks.classList.contains("open")) {
-    icon.classList.remove("fa-bars");
-    icon.classList.add("fa-times"); 
-  } else {
-    icon.classList.add("fa-bars");
-    icon.classList.remove("fa-times");
+  // Navbar Scroll Effect
+  if (navbar) {
+    const handleScroll = () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
   }
-});
 
-// Tutup menu saat klik link
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    const icon = navToggle.querySelector("i");
-    icon.classList.add("fa-bars");
-    icon.classList.remove("fa-times");
-  });
-});
-  
+  // Toggle Mobile Menu
+  if (navToggle) {
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      const icon = navToggle.querySelector("i");
+
+      if (navLinks.classList.contains("open")) {
+        icon.classList.replace("fa-bars", "fa-times");
+      } else {
+        icon.classList.replace("fa-times", "fa-bars");
+      }
+    });
+  }
+
+  // Close menu when clicking a link
+  if (navLinks) {
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        const icon = navToggle.querySelector("i");
+        icon.classList.replace("fa-times", "fa-bars");
+      });
+    });
+  }
+
 
   /* ==========================================================================
-     2. Reveal on Scroll (Intersection Observer)
+     2. Reveal on Scroll (IntersectionObserver)
   ========================================================================== */
-  const revealElements = document.querySelectorAll('.reveal, .reveal-staggered');
-  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries, obs) => {
+  const revealItems = document.querySelectorAll('.reveal, .reveal-staggered');
+  if ("IntersectionObserver" in window && revealItems.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          entry.target.classList.add("active");
           obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
 
-    revealElements.forEach(el => {
-      if (el.getBoundingClientRect().top > window.innerHeight) {
-        observer.observe(el);
-      } else {
-        el.classList.add('active');
-      }
-    });
+    revealItems.forEach(el => revealObserver.observe(el));
   }
 
+
   /* ==========================================================================
-     3. Number Counter (Trust Badge)
+     3. Number Counter
   ========================================================================== */
   const counterElement = document.querySelector('.count-number');
-  const duration = 3000; // 2 detik
-  if (counterElement && 'IntersectionObserver' in window) {
-    const startCounter = (el) => {
-      let currentCount = 0;
-      const targetValue = parseInt(el.getAttribute('data-target')) || 0;
-      const increment = targetValue / (duration / 16);
+  const duration = 3000;
 
-      const updateCount = () => {
-        currentCount += increment;
-        if (currentCount < targetValue) {
-          el.textContent = Math.ceil(currentCount).toLocaleString('id-ID');
-          requestAnimationFrame(updateCount);
+  if (counterElement) {
+    const startCounter = (el) => {
+      let current = 0;
+      const target = parseInt(el.dataset.target) || 0;
+      const increment = target / (duration / 16);
+
+      const update = () => {
+        current += increment;
+        if (current < target) {
+          el.textContent = Math.ceil(current).toLocaleString('id-ID');
+          requestAnimationFrame(update);
         } else {
-          el.textContent = targetValue.toLocaleString('id-ID');
+          el.textContent = target.toLocaleString('id-ID');
         }
       };
-      requestAnimationFrame(updateCount);
+      requestAnimationFrame(update);
     };
 
     const counterObserver = new IntersectionObserver((entries, obs) => {
@@ -99,105 +93,82 @@ navLinks.querySelectorAll("a").forEach(link => {
       });
     }, { threshold: 0.5 });
 
-    const trustBadge = counterElement.closest('.trust-badge');
-    if (trustBadge) counterObserver.observe(trustBadge);
+    counterObserver.observe(counterElement.closest('.trust-badge'));
   }
 
+
   /* ==========================================================================
-     4. Testimonial Slider
+     4. Testimonial Slider (Auto Slide)
   ========================================================================== */
   const slider = document.getElementById('testiSlider');
 
-if (slider) {
-  const items = slider.querySelectorAll('.testi-item');
-  let currentIndex = 0;
+  if (slider) {
+    const items = slider.querySelectorAll('.testi-item');
+    let idx = 0;
 
-  // Tampilkan slide
-  const showSlide = (index) => {
-    items.forEach(item => item.classList.remove('active'));
-    items[index].classList.add('active');
-  };
+    const showSlide = () => {
+      items.forEach(item => item.classList.remove("active"));
+      items[idx].classList.add("active");
+    };
 
-  // Auto-play setiap 5 detik
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % items.length;
-    showSlide(currentIndex);
-  }, 5000);
+    setInterval(() => {
+      idx = (idx + 1) % items.length;
+      showSlide();
+    }, 5000);
 
-  // Tampilkan pertama
-  showSlide(currentIndex);
-}
+    showSlide();
+  }
+
 
   /* ==========================================================================
      5. Typing Effect
   ========================================================================== */
-  const typingTarget = document.querySelector('.typing-target');
-  if (typingTarget && 'IntersectionObserver' in window) {
-    const textToType = typingTarget.textContent;
-    typingTarget.textContent = '';
-
-    const typingObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          let i = 0;
-          const speed = 50;
-          const typeWriter = () => {
-            if (i < textToType.length) {
-              typingTarget.textContent += textToType.charAt(i);
-              i++;
-              setTimeout(typeWriter, speed);
-            }
-          };
-          setTimeout(typeWriter, 1500);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.8 });
-
-    typingObserver.observe(typingTarget);
-  }
-
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   const typing = document.querySelector(".typing-target");
-  if (!typing) return;
 
-  const text = typing.textContent.trim();
-  typing.textContent = "";
-  let idx = 0;
+  if (typing) {
+    const text = typing.textContent.trim();
+    typing.textContent = "";
+    let i = 0;
 
-  function type() {
-    if (idx < text.length) {
-      typing.textContent += text.charAt(idx);
-      idx++;
-      setTimeout(type, 100); // speed
-    }
+    const type = () => {
+      if (i < text.length) {
+        typing.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 60);
+      }
+    };
+
+    type();
   }
-  type();
-});
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+
+  /* ==========================================================================
+     6. Fade-in Elements
+  ========================================================================== */
+  const fadeElements = document.querySelectorAll('.fade-in-right, .fade-in-left, .reveal');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+    });
   });
+
+  fadeElements.forEach(el => fadeObserver.observe(el));
+
+
+  /* ==========================================================================
+     7. Gallery Slider
+  ========================================================================== */
+  const gallerySlider = document.getElementById('gallerySlider');
+  if (gallerySlider) {
+    const slides = gallerySlider.children;
+    let index = 0;
+
+    const rotate = () => {
+      index = (index + 1) % slides.length;
+      gallerySlider.style.transform = `translateX(-${index * 100}%)`;
+    };
+
+    setInterval(rotate, 3000);
+  }
+
 });
-
-document.querySelectorAll('.fade-in-right, .fade-in-left, .reveal').forEach(el => {
-  observer.observe(el);
-});
-
-const gallerySlider = document.getElementById('gallerySlider');
-if (gallerySlider) {
-  const slides = gallerySlider.children;
-  let currentSlide = 0;
-
-  const showGallerySlide = () => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    gallerySlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-  };
-
-  setInterval(showGallerySlide, 3000); // ganti slide tiap 3 detik
-}
