@@ -3,20 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Adventora Tour & Travel. Penjemputan fleksibel, cepat, nyaman, dan harga bersahabat setiap hari!">
-  <meta name="google-site-verification" content="yW1zI6bdxQ2MPzpSYpargItjmuNy_vxs_qDg5s_tGUU" />
- 
+
   <title>Adventora | Travel Nyaman, Harga Jujur, tanpa drama</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <link rel="icon" href="https://via.placeholder.com/32/007bff/ffffff?text=A"> 
+  <meta name="description" content="Adventora Tour & Travel. Penjemputan fleksibel, cepat, nyaman, dan harga bersahabat setiap hari!">
+  <meta name="application-name" content="Adventora">
+  <meta name="apple-mobile-web-app-title" content="Adventora">
+  <meta name="google-site-verification" content="yW1zI6bdxQ2MPzpSYpargItjmuNy_vxs_qDg5s_tGUU">
+
+<!-- Favicon Complete Set -->
+<link rel="icon" type="image/png" sizes="16x16" href="/image/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/image/logo.png">
+<link rel="shortcut icon" href="/image/logo.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0C969C">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://www.adventora.web.id/">
 
-  
-  <link rel="stylesheet" href="css/index.css"> 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- Schema org (BIAR GOOGLE TAMPILKAN LOGO & BRAND) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adventora",
+    "url": "https://www.adventora.web.id",
+    "logo": "https://www.adventora.web.id/image/logo.png"
+  }
+  </script>
+
 </head>
 <body>
 
@@ -31,6 +56,17 @@
         <a href="#packages">Paket</a>
         <a href="#accessories">Aksesori</a>
         <a href="#promo">Promo</a>
+        <div class="dropdown-mobile">
+    <button class="dropdown-toggle">
+        Layanan Rute <span class="arrow">▼</span>
+    </button>
+    <div class="dropdown-panel">
+        <a href="rute-jember-surabaya.html">Jember → Surabaya</a>
+        <a href="rute-jember-jakarta.html">Jember → Jakarta</a>
+        <a href="rute-jember-malang.html">Jember → Malang</a>
+        <a href="rute-jember-bali.html">Jember → Bali</a>
+    </div>
+</div>
         <a href="#partners">Rekan</a>
         <a href="#gallery">Armada</a>
         <a href="#testimonials">Testimoni</a>
@@ -104,7 +140,7 @@
       <div class="grid-packages">
         <article class="card reveal fade-in-up" style="--stagger-delay: 0.1s;">
           <div class="card-media">
-            <img src="image/regular.jpg" alt="Mobil Travel di Jalan Raya" loading="lazy">
+            <img src="image/regular.png" alt="Mobil Travel di Jalan Raya" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Regular</h3>
@@ -299,7 +335,7 @@
 
       <div class="gallery-slider">
         <div class="slider-track" id="gallerySlider">
-           <div class="slide"><img src="image/galery1.jpg" loading="lazy"></div>
+           <div class="slide"><img src="image/galery1.webp" loading="lazy"></div>
           <div class="slide"><img src="image/galery2.jpg" alt="Perjalanan Adventora 2" loading="lazy"></div>
           <div class="slide"><img src="image/galery3.jpg" alt="Perjalanan Adventora 3" loading="lazy"></div>
           <div class="slide"><img src="image/galery4.jpg" alt="Perjalanan Adventora 4" loading="lazy"></div>
@@ -331,6 +367,14 @@
   </div>
 </section>
 
+<script>
+document.querySelectorAll('.dropdown-mobile .dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        parent.classList.toggle('active');
+    });
+});
+</script>
 <script src="js/index.js"></script>
 
 </body>
