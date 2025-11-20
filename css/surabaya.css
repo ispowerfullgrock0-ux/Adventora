@@ -1240,3 +1240,15 @@ img {
 .dropdown-mobile.active .arrow {
     transform: rotate(180deg);
 }
+
+.comfort-points li {
+  display: flex;
+  align-items: flex-start; /* bikin ikon dan teks rata atas */
+  gap: 8px;
+}
+
+.comfort-points li i {
+  flex-shrink: 0; /* biar ikon tidak terdorong */
+  margin-top: 3px; /* sedikit naik biar sejajar */
+  font-size: 1.1rem; /* opsional */
+}

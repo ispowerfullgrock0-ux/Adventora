@@ -31,7 +31,7 @@ body {
     color: var(--text-color);
     background-color: var(--light-bg);
     /* Latar Belakang Pemandangan (Ganti URL dengan gambar Anda) */
-    background-image: url('/image/view1.jpg');
+    background-image: url('/image/view1.webp');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
