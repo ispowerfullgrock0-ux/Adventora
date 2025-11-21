@@ -56,15 +56,34 @@
         <a href="#packages">Paket</a>
         <a href="#accessories">Aksesori</a>
         <a href="#promo">Promo</a>
-        <div class="dropdown-mobile">
-    <button class="dropdown-toggle">
-        Layanan Rute <span class="arrow">▼</span>
-    </button>
+      <div class="dropdown-group">
+    <button class="dropdown-toggle">Surabaya <span class="arrow">▼</span></button>
     <div class="dropdown-panel">
-        <a href="rute-jember-surabaya.html">Jember → Surabaya</a>
+        <a href="/rute-kota.html?rute=Jember-Surabaya">Jember → Surabaya</a>
+        <a href="/rute-kota.html?rute=Bondowoso-Surabaya">Bondowoso → Surabaya</a>
+         <a href="/rute-kota.html?rute=Lumajang-Surabaya">Lumajang → Surabaya</a>
+        <a href="/rute-kota.html?rute=Situbondo-Surabaya">Situbondo → Surabaya</a>
+        <a href="/rute-kota.html?rute=Banyuwangi-Surabaya">Banyuwangi → Surabaya</a>
+          <a href="/rute-kota.html?rute=Probolinggo-Surabaya">Probolinggo → Surabaya</a>
+           <a href="/rute-kota.html?rute=Bali-Surabaya">Bali → Surabaya</a>
+           <a href="/rute-kota.html?rute=Semarang-Surabaya">Semarang → Surabaya</a>
+            <a href="/rute-kota.html?rute=Malang-Surabaya">Malang → Surabaya</a>
+    </div>
+</div>
+
+<div class="dropdown-group">
+    <button class="dropdown-toggle">Jakarta <span class="arrow">▼</span></button>
+    <div class="dropdown-panel">
+         <a href="/rute-kota.html?rute=Jember-Jakarta">Jember → Jakarta</a>
+        <a href="rute-surabaya-jakarta.html">Surabaya → Jakarta</a>
+    </div>
+</div>
+
+<div class="dropdown-group">
+    <button class="dropdown-toggle">Jakarta <span class="arrow">▼</span></button>
+    <div class="dropdown-panel">
         <a href="rute-jember-jakarta.html">Jember → Jakarta</a>
-        <a href="rute-jember-malang.html">Jember → Malang</a>
-        <a href="rute-jember-bali.html">Jember → Bali</a>
+        <a href="rute-surabaya-jakarta.html">Surabaya → Jakarta</a>
     </div>
 </div>
         <a href="#partners">Rekan</a>
@@ -368,11 +387,29 @@
 </section>
 
 <script>
-document.querySelectorAll('.dropdown-mobile .dropdown-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const parent = btn.parentElement;
-        parent.classList.toggle('active');
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // agar klik tidak menutup dropdown lain
+        const panel = button.nextElementSibling;
+
+        // tutup panel lain
+        document.querySelectorAll('.dropdown-panel').forEach(p => {
+            if(p !== panel) p.classList.remove('show');
+        });
+        document.querySelectorAll('.dropdown-toggle').forEach(b => {
+            if(b !== button) b.classList.remove('active');
+        });
+
+        // toggle panel ini
+        panel.classList.toggle('show');
+        button.classList.toggle('active');
     });
+});
+
+// Tutup semua dropdown kalau klik di luar
+window.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-panel').forEach(panel => panel.classList.remove('show'));
+    document.querySelectorAll('.dropdown-toggle').forEach(b => b.classList.remove('active'));
 });
 </script>
 <script src="js/index.js"></script>

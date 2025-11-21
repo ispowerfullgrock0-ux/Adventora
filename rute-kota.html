@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Travel Antar Kota Jawa Timur | Adventora Travel</title>
+  <meta name="description" content="Travel antar kota seluruh Jawa Timur: door-to-door, harga transparan dan cepat setiap hari bersama Adventora Travel.">
+  <meta name="keywords" content="travel Jawa Timur, travel antar kota, travel murah, Adventora Travel">
+
+  <meta name="application-name" content="Adventora">
+  <meta name="apple-mobile-web-app-title" content="Adventora">
+  <meta name="theme-color" content="#0C969C">
+
+  <link rel="canonical" href="https://www.adventora.web.id/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/logo.png">
+  <link rel="shortcut icon" href="/image/logo.png" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/lumajang.css">
+
+  <!-- SEO Dinamis -->
+  <script>
+  const paramsSEO = new URLSearchParams(window.location.search);
+  const r = paramsSEO.get("rute");
+
+  const SEO = {
+    "Lumajang-Surabaya": {
+      title: "Travel Lumajang Surabaya Murah | Adventora Cepat & Nyaman",
+      desc: "Travel Lumajang Surabaya murah, door-to-door & cepat setiap hari. Booking di Adventora Travel."
+    },
+    "Jember-Surabaya": {
+      title: "Travel Jember Surabaya Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Surabaya dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Malang-Surabaya": {
+      title: "Travel Malang Surabaya | Armada Nyaman & Terawat",
+      desc: "Travel Malang Surabaya cepat, aman, unit terawat dan driver profesional."
+    },
+    "Banyuwangi-Surabaya": {
+      title: "Travel Banyuwangi Surabaya | Door to Door Aman & Hemat",
+      desc: "Travel Banyuwangi Surabaya dengan penjemputan rumah dan harga jelas setiap hari."
+    }
+  };
+
+  if (SEO[r]) {
+    document.title = SEO[r].title;
+    document.querySelector('meta[name="description"]').setAttribute("content", SEO[r].desc);
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="/index.html">
+      <img src="image/image2.png" alt="Adventora Logo" class="logo-img">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/index.html" class="nav-item">Beranda</a>
+      <a href="/rute.html" class="nav-item">Rute Lain</a>
+      <a href="#jadwal" class="nav-item">Jadwal & Harga</a>
+      <a href="#wisata" class="nav-item">Paket Wisata</a>
+      <a href="#armada" class="nav-item">Armada</a>
+      <a href="#kontak" class="nav-item cta-nav-btn">Pesan Sekarang</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero adventora-bg">
+  <div class="container hero-content animate-group">
+
+    <h1 class="animate-stagger-1">
+      Travel Rute <span class="dyn-origin"></span> ↔ <span class="dyn-dest"></span><br>
+      <small>Door-to-Door • Tanpa Ribet</small>
+    </h1>
+
+    <p class="cta-text">Pesan Sekarang & Nikmati Promo Terbatas!</p>
+
+    <h3><i class="fas fa-arrow-right"></i> Rute: <span class="dyn-origin"></span> → <span class="dyn-dest"></span></h3>
+
+    <p class="hero-tagline animate-stagger-2">
+      Perjalanan nyaman dari <span class="dyn-origin"></span> ke <span class="dyn-dest"></span> atau sebaliknya dengan harga transparan, unit terawat & driver profesional.
+    </p>
+
+    <div class="cta-banner animate-stagger-3">
+      <span class="cta-text">Klik untuk cek jadwal & tarif</span>
+      <a href="#jadwal" class="btn primary cta-pulse">
+        <i class="fas fa-calendar-alt"></i> Cek Jadwal & Tarif
+      </a>
+    </div>
+
+    <div class="trust-icons animate-stagger-4">
+      <div class="trust-item"><i class="fas fa-route"></i> Rute Populer</div>
+      <div class="trust-item"><i class="fas fa-check-shield"></i> Terpercaya Sejak 2020</div>
+      <div class="trust-item"><i class="fas fa-car"></i> Armada Nyaman & Bersih</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.hero-content > *');
+  items.forEach((el, i) => {
+    const d = (i * 0.2) + 0.2;
+    el.style.transition = `opacity .8s ease ${d}s, transform .8s ease ${d}s`;
+    setTimeout(() => el.classList.add('active'), 50);
+  });
+});
+</script>
+
+<section id="keunggulan" class="section features adventora-section-bg">
+  <div class="container">
+    <h2 class="section-title reveal fade-in-down">Mengapa Adventora Pilihan Utama?</h2>
+    <div class="feature-grid">
+
+      <div class="feature-card reveal fade-in-up">
+        <i class="fas fa-home feature-icon"></i>
+        <h3>Jemput Depan Rumah</h3>
+        <p>Layanan travel <span class="dyn-origin"></span> → <span class="dyn-dest"></span> tanpa repot — kami jemput & antar sampai lokasi tujuan.</p>
+      </div>
+
+      <div class="feature-card reveal fade-in-up">
+        <i class="fas fa-tags feature-icon"></i>
+        <h3>Harga Flat & Transparan</h3>
+        <p>Harga jujur sudah termasuk tol. Tidak ada biaya tambahan tersembunyi.</p>
+      </div>
+
+      <div class="feature-card reveal fade-in-up">
+        <i class="fas fa-user-shield feature-icon"></i>
+        <h3>Driver Berpengalaman</h3>
+        <p>Driver mengenal baik rute <span class="dyn-origin"></span> ↔ <span class="dyn-dest"></span> untuk perjalanan aman & nyaman.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="jadwal" class="section schedule-table-section adventora-section-bg">
+  <div class="container reveal">
+    <h2 class="section-title fade-in-down">Jadwal Keberangkatan & Tarif Travel</h2>
+    <p class="schedule-intro fade-in-up">Siap jemput setiap hari — pastikan sudah siap minimal 1 jam sebelum keberangkatan.</p>
+
+    <div class="schedule-grid-container">
+      <div class="schedule-grid">
+
+        <div class="schedule-column fade-in-left">
+          <h3><i class="fas fa-arrow-right"></i> Rute: <span class="dyn-origin"></span> → <span class="dyn-dest"></span></h3>
+          <div class="schedule-card">
+            <div class="schedule-item"><span>Pagi</span><strong>06:00 WIB</strong></div>
+            <div class="schedule-item"><span>Siang</span><strong>09:00 WIB</strong></div>
+            <div class="schedule-item"><span>Sore</span><strong>15:00 WIB</strong></div>
+            <div class="schedule-item"><span>Malam</span><strong>21:00 WIB</strong></div>
+           <p class="price-info">Tarif Reguler: <strong class="dyn-price">Mulai Rp.</strong></p>
+          </div>
+        </div>
+
+        <div class="schedule-column fade-in-right">
+          <h3><i class="fas fa-arrow-left"></i> Rute: <span class="dyn-dest"></span> → <span class="dyn-origin"></span></h3>
+          <div class="schedule-card">
+            <div class="schedule-item"><span>Pagi</span><strong>09:00 WIB</strong></div>
+            <div class="schedule-item"><span>Sore</span><strong>15:00 WIB</strong></div>
+            <div class="schedule-item"><span>Malam</span><strong>21:00 WIB</strong></div>
+           <p class="price-info">Tarif Reguler: <strong class="dyn-price">Mulai Rp.</strong></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <a href="booking.html" class="btn primary cta-pulse mt-40" target="_blank">Booking Sekarang</a>
+  </div>
+</section>
+
+<section id="layanan" class="section cta-tourism adventora-bg">
+            <div class="container grid-two tourism-content">
+                <div class="tourism-text reveal fade-in-left">
+                   <h2>Diskon 25% Spesial Adventora!</h2>
+<p>Nikmati perjalanan nyaman dan hemat dengan Adventora. Hanya untuk waktu terbatas, dapatkan diskon 25% untuk semua paket travel!</p>
+<a href="booking.html" class="btn primary">AMBIL PROMO SEKARANG</a>
+                </div>
+                <div class="tourism-image reveal fade-in-right">
+                    <img src="image/title.webp" alt="Air Terjun Tumpak Sewu Lumajang" loading="lazy">
+                </div>
+            </div>
+        </section>
+        
+        <section id="wisata" class="section tour-packages-section adventora-section-bg">
+            <div class="container reveal">
+                <h2 class="section-title fade-in-down">Layanan lain Adventora</h2>
+                <p class="package-intro fade-in-up">Eksplorasi keindahan alam Jawa Timur bersama Adventora dengan harga terbaik.</p>
+
+                <div class="package-grid">
+                    <div class="package-card fade-in-up" style="--stagger-delay:0.1s">
+                        <img src="image/bromo.webp" alt="Paket Wisata Bromo Sunrise">
+                        <h3>Private Trip Bromo Sunrise</h3>
+                        <p>Nikmati keindahan matahari terbit di Gunung Bromo tanpa repot.</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-users"></i> 1-5 Orang</span>
+                            <span><i class="fas fa-clock"></i> 1 Hari / Full Day</span>
+                        </div>
+                        <a href="https://wa.me/6281217241263" target="_blank" class="btn outline small">Info Harga</a>
+                    </div>
+
+                    <div class="package-card fade-in-up" style="--stagger-delay:0.3s">
+                        <img src="image/tumpaksewu.webp" alt="Paket Wisata Tumpak Sewu">
+                        <h3>Full Day Tour Tumpak Sewu</h3>
+                        <p>Wisata ke Air Terjun Tumpak Sewu (Niagara Indonesia) dan Coban Sriti. Sudah termasuk tiket masuk.</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-users"></i> 1-6 Orang</span>
+                            <span><i class="fas fa-clock"></i> 12 Jam</span>
+                        </div>
+                        <a href="https://wa.me/6281217241263" target="_blank" class="btn outline small">Info Harga</a>
+                    </div>
+
+                    <div class="package-card fade-in-up" style="--stagger-delay:0.5s">
+                        <img src="image/rental.webp" alt="Sewa Mobil + Driver Lumajang">
+                        <h3>Sewa Mobil + Driver (Harian)</h3>
+                        <p>Layanan sewa mobil lengkap dengan driver profesional untuk keperluan dinas, keluarga, atau ziarah.</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-car-alt"></i> Semua Armada</span>
+                            <span><i class="fas fa-route"></i> Dalam/Luar Kota</span>
+                        </div>
+                        <a href="https://wa.me/6281217241263" target="_blank" class="btn outline small">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="kontak" class="contact-cta-section adventora-section-bg" style="padding:60px 0;text-align:center;">
+  <a href="https://wa.me/6281217241263" target="_blank" class="btn primary cta-pulse" style="font-size:26px;padding:22px 50px;border-radius:12px;">
+    HUBUNGI KAMI SEKARANG
+  </a>
+</section>
+</main>
+
+<footer class="main-footer">
+  <div class="container footer-content">
+    <p>© 2025 Adventora.id — All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#home">Syarat & Ketentuan</a> <span>|</span>
+      <a href="#home">Kebijakan Privasi</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ruteList = {
+  "Lumajang-Surabaya":   { origin: "Lumajang", dest: "Surabaya", price: 175000 },
+  "Jember-Surabaya":     { origin: "Jember", dest: "Surabaya", price: 200000 },
+  "Probolinggo-Surabaya":     { origin: "Probolinggo", dest: "Surabaya", price: 175000 },
+  "Bondowoso-Surabaya": { origin: "Bondowoso", dest: "Surabaya", price: 200000 },
+  "Situbondo-Surabaya": { origin: "Situbondo", dest: "Surabaya", price: 225000 },
+  "Banyuwangi-Surabaya": { origin: "Banyuwangi", dest: "Surabaya", price: 250000 },
+   "Bali-Surabaya": { origin: "Bali", dest: "Surabaya", price: 280000 },
+   "Semarang-Surabaya": { origin: "Semarang", dest: "Surabaya", price: 300000 },
+   "Malang-Surabaya": { origin: "Malang", dest: "Surabaya", price: 175000 },
+
+  // Tambahan opsional nanti
+  "Jember-Jakarta":     { origin: "Jember", dest: "Jakarta", price: 750000 },
+  "Lumajang-Jember":     { origin: "Lumajang", dest: "Jember", price: 120000 }
+};
+
+const params = new URLSearchParams(window.location.search);
+const rute = params.get("rute");
+
+if (rute && ruteList[rute]) {
+  document.querySelectorAll(".dyn-origin").forEach(e => e.textContent = ruteList[rute].origin);
+  document.querySelectorAll(".dyn-dest").forEach(e => e.textContent = ruteList[rute].dest);
+
+  const formatHarga = ruteList[rute].price.toLocaleString("id-ID");
+  document.querySelectorAll(".dyn-price").forEach(e => e.textContent = "Rp " + formatHarga);
+}
+</script>
+
+<script src="js/lumajang.js"></script>
+</body>
+</html>
