@@ -40,7 +40,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // agar klik tidak menutup dropdown lain
+        const panel = button.nextElementSibling;
 
+        // tutup panel lain
+        document.querySelectorAll('.dropdown-panel').forEach(p => {
+            if(p !== panel) p.classList.remove('show');
+        });
+        document.querySelectorAll('.dropdown-toggle').forEach(b => {
+            if(b !== button) b.classList.remove('active');
+        });
+
+        // toggle panel ini
+        panel.classList.toggle('show');
+        button.classList.toggle('active');
+    });
+});
+
+// Tutup semua dropdown kalau klik di luar
+window.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-panel').forEach(panel => panel.classList.remove('show'));
+    document.querySelectorAll('.dropdown-toggle').forEach(b => b.classList.remove('active'));
+});
 
   /* ==========================================================================
      2. Reveal on Scroll (IntersectionObserver)
